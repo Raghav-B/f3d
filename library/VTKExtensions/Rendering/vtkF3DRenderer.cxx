@@ -1289,6 +1289,7 @@ void vtkF3DRenderer::FillCheatSheetHotkeys(std::stringstream& cheatSheetText)
   cheatSheetText << " A: Anti-aliasing " << (this->UseFXAAPass ? "[ON]" : "[OFF]") << "\n";
   cheatSheetText << " T: Tone mapping " << (this->UseToneMappingPass ? "[ON]" : "[OFF]") << "\n";
   cheatSheetText << " E: Edge visibility " << (this->EdgeVisible ? "[ON]" : "[OFF]") << "\n";
+  cheatSheetText << " B: Backface culling " << (this->BackfacesCulled ? "[ON]" : "[OFF]") << "\n";
   cheatSheetText << " X: Axis " << (this->AxisVisible ? "[ON]" : "[OFF]") << "\n";
   cheatSheetText << " G: Grid " << (this->GridVisible ? "[ON]" : "[OFF]") << "\n";
   cheatSheetText << " N: File name " << (this->FilenameVisible ? "[ON]" : "[OFF]") << "\n";
@@ -1320,6 +1321,7 @@ void vtkF3DRenderer::ConfigureActorsProperties()
     if (vtkSkybox::SafeDownCast(anActor) == nullptr)
     {
       anActor->GetProperty()->SetEdgeVisibility(this->EdgeVisible);
+      anActor->GetProperty()->SetBackfaceCulling(this->BackfacesCulled);
       anActor->GetProperty()->SetLineWidth(this->LineWidth);
       anActor->GetProperty()->SetPointSize(this->PointSize);
     }
@@ -1336,6 +1338,14 @@ void vtkF3DRenderer::ShowEdge(bool show)
     this->ActorsPropertiesConfigured = false;
     this->CheatSheetConfigured = false;
   }
+}
+
+//----------------------------------------------------------------------------
+void vtkF3DRenderer::BackfaceCull(bool cull)
+{
+  this->BackfacesCulled = cull;
+  this->ActorsPropertiesConfigured = false;
+  this->CheatSheetConfigured = false;
 }
 
 //----------------------------------------------------------------------------

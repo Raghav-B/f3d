@@ -198,7 +198,8 @@ public:
         }
         break;
       case 'B':
-        self->Options.toggle("ui.bar");
+        self->Options.toggle("render.backface-cull");
+        // self->Options.toggle("ui.bar");
         render = true;
         break;
       case 'P':

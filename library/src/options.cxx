@@ -144,6 +144,7 @@ options::options()
 
   // Render
   this->Internals->init("render.show-edges", false);
+  this->Internals->init("render.backface-cull", false);
   this->Internals->init("render.line-width", 1.0);
   this->Internals->init("render.point-size", 10.0);
   this->Internals->init("render.grid.enable", false);

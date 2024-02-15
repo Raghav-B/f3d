@@ -35,6 +35,7 @@ public:
   void ShowAxis(bool show);
   void ShowGrid(bool show);
   void ShowEdge(bool show);
+  void BackfaceCull(bool cull);
   void ShowTimer(bool show);
   void ShowMetaData(bool show);
   void ShowFilename(bool show);
@@ -263,6 +264,7 @@ protected:
   bool GridVisible = false;
   bool GridAbsolute = false;
   bool AxisVisible = false;
+  bool BackfacesCulled = false;
   bool EdgeVisible = false;
   bool TimerVisible = false;
   bool FilenameVisible = false;

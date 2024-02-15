@@ -349,6 +349,8 @@ void window_impl::UpdateDynamicOptions()
   this->Internals->Renderer->SetLineWidth(
     this->Internals->Options.getAsDouble("render.line-width"));
   this->Internals->Renderer->ShowEdge(this->Internals->Options.getAsBool("render.show-edges"));
+  this->Internals->Renderer->BackfaceCull(
+    !this->Internals->Options.getAsBool("render.backface-cull"));
   this->Internals->Renderer->ShowTimer(this->Internals->Options.getAsBool("ui.fps"));
   this->Internals->Renderer->ShowFilename(this->Internals->Options.getAsBool("ui.filename"));
   this->Internals->Renderer->SetFilenameInfo(
